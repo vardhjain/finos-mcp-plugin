@@ -1,0 +1,14 @@
+{
+  "name": "finos-reference-tools",
+  "owner": {
+    "name": "Vardh Jain"
+  },
+  "plugins": [
+    {
+      "name": "finos-reference-tools",
+      "source": "./",
+      "description": "Community read-only AIGF, CDM and FDC3 reference tools and skills."
+    }
+  ],
+  "description": "Community reference tools for FINOS AIGF, CDM and FDC3."
+}
