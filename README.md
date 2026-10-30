@@ -55,3 +55,7 @@ Run `python checks/validate.py` for offline packaging checks.
 Run `python checks/smoke.py` for six real stdio tool calls through both manifests.
 Install uv first. The smoke test downloads the locked dependencies on first run.
 Update dependencies with `uv lock`, review the diff and rerun both checks.
+
+## Terms of use
+
+See [Terms of use](TERMS.md). The code remains licensed under [Apache-2.0](LICENSE).

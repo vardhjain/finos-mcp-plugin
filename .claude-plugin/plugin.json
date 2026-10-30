@@ -1,10 +1,12 @@
 {
   "name": "finos-reference-tools",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Read-only AIGF, CDM and FDC3 tools and workflows.",
   "author": {
     "name": "Vardh Jain"
   },
   "repository": "https://github.com/vardhjain/finos-mcp-plugin",
-  "license": "Apache-2.0"
+  "license": "Apache-2.0",
+  "documentationUrl": "https://vardhjain.github.io/finos-mcp/",
+  "termsOfServiceUrl": "https://github.com/vardhjain/finos-mcp-plugin/blob/main/TERMS.md"
 }

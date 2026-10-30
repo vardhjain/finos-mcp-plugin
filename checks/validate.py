@@ -16,7 +16,7 @@ def main():
     native = load(".claude-plugin/plugin.json")
     portable = load("plugin.json")
     assert native["name"] == portable["name"] == NAME
-    assert native["version"] == portable["version"] == "0.2.0"
+    assert native["version"] == portable["version"] == "0.2.1"
     market = load(".claude-plugin/marketplace.json")
     assert market["plugins"][0]["name"] == NAME
     assert market["plugins"][0]["source"] == "./"

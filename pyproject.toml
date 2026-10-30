@@ -1,6 +1,6 @@
 [project]
 name = "finos-reference-plugin-runtime"
-version = "0.2.0"
+version = "0.2.1"
 requires-python = ">=3.12,<3.13"
 dependencies = [
   "finos-mcp-aigf==0.3.2",
