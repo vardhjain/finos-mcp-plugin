@@ -2,7 +2,7 @@
 
 Uses JSON-RPC directly so the smoke test requires no model or API key.
 Run after installing uv and Python 3.12:
-    python scripts/smoke_plugin_mcp.py
+    python checks/smoke.py
 """
 
 from __future__ import annotations
@@ -108,6 +108,16 @@ def check(config: str, server_key: str) -> None:
         )
         client.send({"jsonrpc": "2.0", "method": "notifications/initialized"})
         tools = client.request("tools/list", {})
+        assert tools["tools"], "Server advertised no tools"
+        for tool in tools["tools"]:
+            assert len(tool["name"]) <= 64, tool
+            annotations = tool.get("annotations", {})
+            assert annotations.get("readOnlyHint") is True, tool
+            assert annotations.get("destructiveHint") is False, tool
+            assert annotations.get("idempotentHint") is True, tool
+            assert annotations.get("openWorldHint") is False, tool
+            assert annotations.get("title") and tool.get("title"), tool
+        print(f"PASS: {server_key}: metadata for {len(tools['tools'])} tools")
         case = CASES[server_key.removeprefix("finos-")]
         assert case["tool"] in {tool["name"] for tool in tools["tools"]}
         result = client.request(

@@ -37,6 +37,8 @@ tool arguments locally and emit audit metadata to stderr. Your AI client may
 send conversation and tool data to its provider and may retain local logs under
 its own settings and terms. Do not include credentials in tool arguments.
 
+See the [Privacy policy](PRIVACY.md) for data handling, retention and operator logging settings.
+
 ## Availability and third-party services
 
 The project offers no uptime guarantee, service-level agreement, or commitment

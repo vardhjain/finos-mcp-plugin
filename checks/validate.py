@@ -16,7 +16,12 @@ def main():
     native = load(".claude-plugin/plugin.json")
     portable = load("plugin.json")
     assert native["name"] == portable["name"] == NAME
-    assert native["version"] == portable["version"] == "0.2.1"
+    assert native["version"] == portable["version"] == "0.2.2"
+    assert native["author"]["url"] == "https://github.com/vardhjain"
+    assert (ROOT / "PRIVACY.md").is_file()
+    assert (ROOT / "SECURITY.md").is_file()
+    readme = (ROOT / "README.md").read_text(encoding="utf-8")
+    assert "[PRIVACY.md](PRIVACY.md)" in readme
     market = load(".claude-plugin/marketplace.json")
     assert market["plugins"][0]["name"] == NAME
     assert market["plugins"][0]["source"] == "./"

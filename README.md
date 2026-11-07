@@ -34,9 +34,12 @@ All three servers share a runtime environment; their processes consume memory se
 
 Tools read bundled public standards. User tool arguments are processed locally;
 there are no model calls or runtime requests to FINOS services. Startup package
-downloads contact PyPI. Servers emit local audit metadata to stderr, including
+downloads contact PyPI; uv may download Python if the required runtime is missing. Servers emit local audit metadata to stderr, including
 method/tool names, argument sizes and hashes; client logging and retention are
 controlled by the client. Do not supply credentials or private trade data in tests.
+
+Privacy policy: [PRIVACY.md](PRIVACY.md). Includes audit settings, retention and third-party services.
+Security reporting: [SECURITY.md](SECURITY.md).
 
 Documentation: https://vardhjain.github.io/finos-mcp/
 Support: https://github.com/vardhjain/finos-mcp-plugin/issues
@@ -59,3 +62,33 @@ Update dependencies with `uv lock`, review the diff and rerun both checks.
 ## Terms of use
 
 See [Terms of use](TERMS.md). The code remains licensed under [Apache-2.0](LICENSE).
+
+## Troubleshooting
+
+If startup fails, confirm `uv --version` and `uv python find 3.12` work in the
+same environment as your AI client, then check the client's MCP server errors.
+The first dependency download needs network access. Run `uv sync --frozen` from
+this repository to diagnose installation failures. Restart the client after
+correcting PATH or installation issues. For an unknown identifier or invalid
+JSON, use the returned error details and a published sample rather than retrying
+unchanged input. Report persistent errors through the support link above.
+
+## Directory reviewer setup
+
+No testing account, credentials or private data are needed: all three servers
+use bundled public standards. Install the requirements above and run the three
+prompts under "Try the tools". Run `python checks/smoke.py` to verify both
+manifests against the bundled examples. The tools provide standards reference
+and structural validation; they do not execute trades, transfer assets, certify
+compliance or provide personalized investment recommendations.
+
+For the submission portal, use these public repository links:
+
+- Privacy: https://github.com/vardhjain/finos-mcp-plugin/blob/main/PRIVACY.md
+- Support: https://github.com/vardhjain/finos-mcp-plugin/issues
+- Documentation: https://github.com/vardhjain/finos-mcp-plugin/blob/main/README.md
+- Terms: https://github.com/vardhjain/finos-mcp-plugin/blob/main/TERMS.md
+
+The publisher must complete contact verification in the portal. Repository
+metadata does not establish verified publisher status. These policy changes
+require a fresh submission; they do not change the rejected commit's verdict.

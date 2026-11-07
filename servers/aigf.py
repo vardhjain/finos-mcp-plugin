@@ -1,6 +1,7 @@
-"""Start the locked, public-PyPI AIGF MCP server."""
+"""Start the locked, public-PyPI AIGF MCP server over stdio."""
 
-from finos_mcp.aigf.__main__ import main
+from finos_mcp.aigf.server import create_server
+from directory_metadata import run
 
 if __name__ == "__main__":
-    main()
+    run(create_server)

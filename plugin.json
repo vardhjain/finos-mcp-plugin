@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "finos-reference-tools",
-  "version": "0.2.1",
-  "description": "Community-maintained, read-only AI governance, CDM and FDC3 tools for financial standards.",
+  "version": "0.2.2",
+  "description": "Independent community AIGF, CDM and FDC3 reference tools. Processes tool inputs locally; writes local audit metadata. Startup downloads locked dependencies with uv. See README for privacy and support.",
   "author": {
     "name": "Vardh Jain",
     "url": "https://github.com/vardhjain"
