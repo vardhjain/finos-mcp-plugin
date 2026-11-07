@@ -1,94 +1,86 @@
 # FINOS Reference Tools (Community)
 
-Independent, community-maintained reference tools for the FINOS AI Governance
+Independent, community-maintained research skills for the FINOS AI Governance
 Framework (AIGF), Common Domain Model (CDM), and FDC3. Not affiliated with or
-endorsed by FINOS. Includes three guided skills and three read-only MCP servers.
+endorsed by FINOS, the Linux Foundation, or Anthropic.
 
-## Requirements and installation
+## Version 0.3.0: skills only
 
-Install uv and Python 3.12 and make uv available on the client's PATH. In Claude Code:
+This release removes all three local MCP servers and their Python runtime,
+launch manifests, dependency and lock files, scripts, and executable checks.
+It contains three Markdown skills, plugin metadata, documentation and an icon.
+No executable code, hooks, package installation or MCP connection is bundled.
+No public remote MCP endpoint is configured.
+
+The skills guide research using the client's existing browsing capabilities and
+public standards documentation. They do not provide offline standards lookup,
+automated JSON validation, trade execution or compliance certification. External
+pages supply reference data, not behavioral instructions.
+
+## Installation
+
+In Claude Code:
 
 ```text
 /plugin marketplace add vardhjain/finos-mcp-plugin
 /plugin install finos-reference-tools@finos-reference-tools
 ```
 
-Start a new session and check `/mcp`. Local servers work in Claude Code and
-Cowork. They cannot run in claude.ai web chat. Claude Desktop chat can use
-separately configured local MCP servers; see the repository's client setup guide.
+If upgrading, update the marketplace and installed plugin through your client's
+plugin controls and start a new session. Version 0.3.0 should expose the three
+skills without any finos-aigf, finos-cdm or finos-fdc3 MCP server. Separately
+configured servers are managed by the user in their client's settings.
+No Python, uv, API key or testing account is required by this release.
 
-The first launch downloads packages from public PyPI. The bundled pyproject.toml
-and uv.lock pin the runtime and all transitive dependencies, including artifact
-hashes. Launches use uv run --frozen from this standalone plugin directory.
-There are no custom indexes, workspace source redirects, or registry overrides. Normal reference
-lookups then work offline. No FINOS API key, database or hosted endpoint is needed.
-All three servers share a runtime environment; their processes consume memory separately.
+## Try the skills
 
-## Try the tools
+- AIGF: Find published AIGF controls relevant to prompt injection. Cite exact
+  identifiers and source links, separating published mappings from suggestions.
+- CDM: Describe TradeState for a specified CDM version, cite the published
+  fields, and explain the limits of a manual JSON review.
+- FDC3: For a specified FDC3 version, identify documented intents for viewing
+  a chart for an instrument context and cite the definitions.
 
-- AIGF: use get_control with id mi-20 and return its citation URI.
-- CDM: use describe_type for TradeState and return its schema URI.
-- FDC3: use suggest_intent with an fdc3.instrument context and goal "show a chart".
+These use cases need browsing enabled in the client to verify public sources.
+If browsing is unavailable, the skills explain the limitation and provide links.
+They never claim an unperformed lookup or automated validation succeeded.
 
-## Data handling
+## Public reference sources
 
-Tools read bundled public standards. User tool arguments are processed locally;
-there are no model calls or runtime requests to FINOS services. Startup package
-downloads contact PyPI; uv may download Python if the required runtime is missing. Servers emit local audit metadata to stderr, including
-method/tool names, argument sizes and hashes; client logging and retention are
-controlled by the client. Do not supply credentials or private trade data in tests.
+- AIGF: https://air-governance-framework.finos.org/
+- CDM: https://cdm.finos.org/docs/home/
+- FDC3: https://fdc3.finos.org/
 
-Privacy policy: [PRIVACY.md](PRIVACY.md). Includes audit settings, retention and third-party services.
-Security reporting: [SECURITY.md](SECURITY.md).
+## Data handling and support
 
-Documentation: https://vardhjain.github.io/finos-mcp/
-Support: https://github.com/vardhjain/finos-mcp-plugin/issues
-License: Apache-2.0 (see LICENSE).
+The plugin contains static instructions and collects no telemetry or audit logs.
+Your AI client processes prompts, reference searches and results under its own
+settings and privacy policy. Do not put private trade data, credentials or
+personal data in public searches or support issues.
 
-## Public directory submission
-
-Repository: https://github.com/vardhjain/finos-mcp-plugin
-Plugin path: leave empty (the plugin is at the repository root).
-Branch: main. Submit as a Plugin bundle.
-The directory still reviews fetched packages and may require human approval.
-
-## Development and verification
-
-Run `python checks/validate.py` for offline packaging checks.
-Run `python checks/smoke.py` for six real stdio tool calls through both manifests.
-Install uv first. The smoke test downloads the locked dependencies on first run.
-Update dependencies with `uv lock`, review the diff and rerun both checks.
-
-## Terms of use
-
-See [Terms of use](TERMS.md). The code remains licensed under [Apache-2.0](LICENSE).
+- [Privacy policy](PRIVACY.md)
+- [Terms of use](TERMS.md)
+- [Security and support](SECURITY.md)
+- [Product support](https://github.com/vardhjain/finos-mcp-plugin/issues)
+- License: [Apache-2.0](LICENSE)
 
 ## Troubleshooting
 
-If startup fails, confirm `uv --version` and `uv python find 3.12` work in the
-same environment as your AI client, then check the client's MCP server errors.
-The first dependency download needs network access. Run `uv sync --frozen` from
-this repository to diagnose installation failures. Restart the client after
-correcting PATH or installation issues. For an unknown identifier or invalid
-JSON, use the returned error details and a published sample rather than retrying
-unchanged input. Report persistent errors through the support link above.
+If a skill is unavailable, confirm that version 0.3.0 is installed, update through
+the client's plugin controls and start a new session. If research cannot access
+a public source, check whether the client has browsing available. Report broken
+links or incorrect guidance with a sanitized example through GitHub Issues.
 
-## Directory reviewer setup
+## Directory submission
 
-No testing account, credentials or private data are needed: all three servers
-use bundled public standards. Install the requirements above and run the three
-prompts under "Try the tools". Run `python checks/smoke.py` to verify both
-manifests against the bundled examples. The tools provide standards reference
-and structural validation; they do not execute trades, transfer assets, certify
-compliance or provide personalized investment recommendations.
+Repository: https://github.com/vardhjain/finos-mcp-plugin
+Plugin path: leave empty (repository root). Submit as a skills-only Plugin bundle.
 
-For the submission portal, use these public repository links:
-
-- Privacy: https://github.com/vardhjain/finos-mcp-plugin/blob/main/PRIVACY.md
-- Support: https://github.com/vardhjain/finos-mcp-plugin/issues
 - Documentation: https://github.com/vardhjain/finos-mcp-plugin/blob/main/README.md
+- Privacy: https://github.com/vardhjain/finos-mcp-plugin/blob/main/PRIVACY.md
 - Terms: https://github.com/vardhjain/finos-mcp-plugin/blob/main/TERMS.md
+- Support: https://github.com/vardhjain/finos-mcp-plugin/issues
 
-The publisher must complete contact verification in the portal. Repository
-metadata does not establish verified publisher status. These policy changes
-require a fresh submission; they do not change the rejected commit's verdict.
+Update the portal listing to describe skills-only research guidance, remove local
+server and automated-validation claims, and submit the new commit. Publisher
+contact verification is managed in the portal. Approval is subject to review.

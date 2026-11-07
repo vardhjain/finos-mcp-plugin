@@ -1,14 +1,21 @@
 {
   "name": "finos-reference-tools",
-  "version": "0.2.2",
-  "description": "Independent community AIGF, CDM and FDC3 reference tools. Processes tool inputs locally; writes local audit metadata. Startup downloads locked dependencies with uv. See README for privacy and support.",
+  "version": "0.3.0",
+  "description": "Independent community skills for researching FINOS AIGF, CDM and FDC3 public standards. Skills only; no bundled servers, scripts, dependencies or telemetry.",
   "author": {
     "name": "Vardh Jain",
     "url": "https://github.com/vardhjain"
   },
+  "homepage": "https://github.com/vardhjain/finos-mcp-plugin#readme",
   "repository": "https://github.com/vardhjain/finos-mcp-plugin",
   "license": "Apache-2.0",
-  "documentationUrl": "https://vardhjain.github.io/finos-mcp/",
-  "termsOfServiceUrl": "https://github.com/vardhjain/finos-mcp-plugin/blob/main/TERMS.md",
-  "homepage": "https://github.com/vardhjain/finos-mcp-plugin#readme"
+  "keywords": [
+    "finos",
+    "standards",
+    "aigf",
+    "cdm",
+    "fdc3"
+  ],
+  "privacyPolicyUrl": "https://github.com/vardhjain/finos-mcp-plugin/blob/main/PRIVACY.md",
+  "termsOfServiceUrl": "https://github.com/vardhjain/finos-mcp-plugin/blob/main/TERMS.md"
 }

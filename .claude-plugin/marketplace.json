@@ -7,8 +7,8 @@
     {
       "name": "finos-reference-tools",
       "source": "./",
-      "description": "Community read-only AIGF, CDM and FDC3 reference tools and skills."
+      "description": "Community skills for researching public AIGF, CDM and FDC3 standards. No bundled MCP servers."
     }
   ],
-  "description": "Community reference tools for FINOS AIGF, CDM and FDC3."
+  "description": "Independent community reference skills for FINOS public standards."
 }
